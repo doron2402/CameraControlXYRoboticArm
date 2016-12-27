@@ -1,6 +1,11 @@
 # CameraControlXYRoboticArm
   Description Camera control XY Robotic arm
 
+## How to start
+  - Follow this guide: `http://flask.pocoo.org/docs/0.12/tutorial/`
+  - Make sure `virtualenv` is installed, if not follow this guide `http://docs.python-guide.org/en/latest/dev/virtualenvs/`
+  - Install packages `pip install --editable .` - After installing the python packages you'll see bunch of new folders such as lib, include and bin.
+  - Run it using `./init.sh` its under `flaskr`
 
 ## Manifest
   - Web server running on RasberryPie
