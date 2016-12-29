@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Camera Control XY Robotic">
+    <meta name="author" content="">
+
+	<title>Camera Control XY Robotic</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+</head>
+<body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-xs-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Camera Control XY Robotic</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3">Jumbotron heading</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+
+      <div class="row marketing">
+       {% block body %}{% endblock %}
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
+<script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+   
+	 <script type="text/javascript">
+$(document).ready(function(){
+  $('button.command').click(function(event){
+    event.preventDefault();
+    var name = $(event.currentTarget).attr('name');
+    var type = name.split('-')[0];
+    var action = name.split('-')[1];
+    $('.status').html('<div class="alert alert-info" role="alert">sending command!</div>');
+     $.post('/commands/' + type + '/' + action, function(res) {
+      // Successfully
+      setTimeout(function() {
+        $('.status').html('<div class="alert alert-success" role="alert">Sent Successfully!</div>');
+      }, 500);
+      
+
+     }).done(function(done) {
+      // Command Sent action is done.
+      setTimeout(function() {
+        $('.status').html('');
+      }, 1500);
+     }).fail(function(err) {
+      console.log(err);
+      alert('something went wrong');
+     });
+  });
+});
+</script>
+</body>
+
+</html>

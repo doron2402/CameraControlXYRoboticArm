@@ -1,4 +1,6 @@
 # INSTALL FROM requirements.txt
-pip install -r ./requirements.txt
+#pip install -r ./requirements.txt
 # Run app
-python server.py
+#APP_CONFIG_FILE=/var/www/yourapp/config/production.py
+python app.py
+
