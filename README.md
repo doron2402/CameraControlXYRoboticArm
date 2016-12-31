@@ -1,11 +1,16 @@
 # CameraControlXYRoboticArm
   Description Camera control XY Robotic arm
 
-## How to start
+## Set python env
+  - clone the repo
+  - cd to the project `cd CameraControlXYRoboticArm`
+  - `source camera-control/bin/activate`
+  - go to the server directory `cd Server`
+  - `pip install -r requirements.txt`
+  - In order to test that you're on the right path run `which pip` and make sure it points to this directory `CameraControlXYRoboticArm/camera-control/bin/pip'
+
+## Guides 
   - Follow this guide: `http://flask.pocoo.org/docs/0.12/tutorial/`
-  - Make sure `virtualenv` is installed, if not follow this guide `http://docs.python-guide.org/en/latest/dev/virtualenvs/`
-  - Install packages `pip install --editable .` - After installing the python packages you'll see bunch of new folders such as lib, include and bin.
-  - Run it using `./init.sh` its under `flaskr`
   - Great readme is here: `https://github.com/pallets/flask/tree/master/examples/flaskr`
 
 ## Manifest
