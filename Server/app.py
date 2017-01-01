@@ -5,6 +5,17 @@ import os
 app = Flask(__name__)
 app.config.from_object('config')
 
+
+def camera_action(action):
+    res = ''
+    if action == "snapshot":
+        os.system("sh ./commands/webcam.sh")
+        res = { 'type': 'camera', 'action': action, 'success': 'true' } 
+    else:
+        res = { 'type': 'camera', 'action': action, 'error': 'unknown action' }
+
+    return res
+
 @app.route('/')
 def home():
     return render_template('dashboard.html')
@@ -23,15 +34,33 @@ def about():
 def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
-    if action == "picture":
-        print("Amit is the king!!!")
-        os.system("sh /command/webcam.sh")
+    
+    # Camera
+    if type == "camera":
+        res = camera_action(action)
+    # Zoom
+    elif type == "zoom":
+        if action == "in":
+            res = { 'type': type, 'action': action, 'success': 'true' }
+        elif action == "out":
+            res = { 'type': type, 'action': action, 'success': 'true' }
+        else:
+            res = { 'type': type, 'action': action, 'error': 'unknown action' }  
+    # Move
+    elif type == "move":
+        if action == "up":
+            res = { 'type': type, 'action': action, 'success': 'true' }
+        elif action == "down":
+            res = { 'type': type, 'action': action, 'success': 'true' }
+        elif action == "right":
+            res = { 'type': type, 'action': action, 'success': 'true' }
+        elif action == "left":
+            res = { 'type': type, 'action': action, 'success': 'true' } 
+        else:
+            res = { 'type': type, 'action': action, 'error': 'unknown action' } 
     else:
-        # example of running a linux command line
-        os.system("ls -lsf")
-        os.system("echo 'Doron is my king!!!'")
-        
-    res = { 'type': type, 'action': action }
+        res = { 'type': type, 'action': action, 'error': 'unknown type' }    
+
     return jsonify(**res)
 
 
