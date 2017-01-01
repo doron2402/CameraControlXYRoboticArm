@@ -23,7 +23,7 @@ def about():
 def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
-    if action = "picture":
+    if action == "picture":
         pos.system("ls -lsf")
         os.system("echo 'Amit is the king!!!'")
     else:
