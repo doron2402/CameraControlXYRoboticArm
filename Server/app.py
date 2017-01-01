@@ -24,8 +24,7 @@ def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
     if action == "picture":
-        pos.system("ls -lsf")
-        os.system("echo 'Amit is the king!!!'")
+        print("Amit is the king!!!")
     else:
         # example of running a linux command line
         os.system("ls -lsf")
