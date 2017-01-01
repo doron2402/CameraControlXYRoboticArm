@@ -23,9 +23,14 @@ def about():
 def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
-    # example of running a linux command line
-    os.system("ls -lsf")
-    os.system("echo 'Doron is my king!!!'")
+    if action = "picture":
+        pos.system("ls -lsf")
+        os.system("echo 'Amit is the king!!!'")
+    else:
+        # example of running a linux command line
+        os.system("ls -lsf")
+        os.system("echo 'Doron is my king!!!'")
+        
     res = { 'type': type, 'action': action }
     return jsonify(**res)
 
