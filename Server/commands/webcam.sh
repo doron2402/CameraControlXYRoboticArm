@@ -1,6 +1,8 @@
 
 #!/bin/bash
+timestamp() {
+  date +"%T"
+}
+DATE=timestamp
 
-DATE=$(date +"%Y-%m-%d_%H%M")
-
-fswebcam -r 640x480 --no-banner /home/pi/webcam/$DATE.jpg
+fswebcam -r 640x480 --no-banner ~/webcam/$DATE.jpg
