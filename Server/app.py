@@ -1,20 +1,11 @@
 # app.py or app/__init__.py
 from flask import Flask, render_template, jsonify
 import os 
+from action_commands import *
 
 app = Flask(__name__)
 app.config.from_object('config')
 
-
-def camera_action(action):
-    res = ''
-    if action == "snapshot":
-        os.system("sh ./commands/webcam.sh")
-        res = { 'type': 'camera', 'action': action, 'success': 'true' } 
-    else:
-        res = { 'type': 'camera', 'action': action, 'error': 'unknown action' }
-
-    return res
 
 @app.route('/')
 def home():
@@ -40,24 +31,10 @@ def commands(type, action):
         res = camera_action(action)
     # Zoom
     elif type == "zoom":
-        if action == "in":
-            res = { 'type': type, 'action': action, 'success': 'true' }
-        elif action == "out":
-            res = { 'type': type, 'action': action, 'success': 'true' }
-        else:
-            res = { 'type': type, 'action': action, 'error': 'unknown action' }  
+        res = zoom_action(action)
     # Move
     elif type == "move":
-        if action == "up":
-            res = { 'type': type, 'action': action, 'success': 'true' }
-        elif action == "down":
-            res = { 'type': type, 'action': action, 'success': 'true' }
-        elif action == "right":
-            res = { 'type': type, 'action': action, 'success': 'true' }
-        elif action == "left":
-            res = { 'type': type, 'action': action, 'success': 'true' } 
-        else:
-            res = { 'type': type, 'action': action, 'error': 'unknown action' } 
+        res = move_action(action)
     else:
         res = { 'type': type, 'action': action, 'error': 'unknown type' }    
 
