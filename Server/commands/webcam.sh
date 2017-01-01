@@ -3,6 +3,6 @@
 timestamp() {
   date +"%T"
 }
-DATE=timestamp
+DATE=$(date+%s)
 
 fswebcam -r 640x480 --no-banner ~/webcam/$DATE.jpg
