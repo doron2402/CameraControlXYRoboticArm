@@ -1,8 +1,3 @@
-
 #!/bin/bash
-timestamp() {
-  date +"%T"
-}
-DATE=$(date+%s)
-
-fswebcam -r 640x480 --no-banner ~/webcam/$DATE.jpg
+touch $(date +%s).txt
+fswebcam -r 640x480 --no-banner ~/webcam/$(date +%s).jpg
