@@ -20,7 +20,7 @@
   - `source camera-control/bin/activate`
   - go to the server directory `cd Server`
   - `pip install -r requirements.txt`
-  - In order to test that you're on the right path run `which pip` and make sure it points to this directory `CameraControlXYRoboticArm/camera-control/bin/pip'
+  - In order to test that you're on the right path run `which pip` and make sure it points to this directory `CameraControlXYRoboticArm/camera-control/bin/pip' -----("I got:/usr/local/bin/pip")----
   - To start the server just run `./run.sh`
 
 ## Guides 
