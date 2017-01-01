@@ -1,6 +1,19 @@
 # CameraControlXYRoboticArm
   Description Camera control XY Robotic arm
 
+## Python Version 2.7.12
+## How to install python
+  - make sure you have `wget` install on your computer
+  - `mkdir ~/src`
+  - `wget http://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz`
+  - `tar -zxvf Python-2.7.12.tgz`
+  - `cd Python-2.7.12`
+  - `mkdir ~/.localpython`
+  - `./configure --prefix=$HOME/.localpython`
+  - `make`
+  - `make install`
+## PIP Version 9.0.1
+
 ## Set python env
   - clone the repo
   - cd to the project `cd CameraControlXYRoboticArm`
