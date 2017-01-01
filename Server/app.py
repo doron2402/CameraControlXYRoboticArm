@@ -25,7 +25,7 @@ def commands(type, action):
     print("Command Action %s" % action)
     if action == "picture":
         print("Amit is the king!!!")
-        os.system("sh /command/webcam.sh")
+        os.system("sh Server/command/webcam.sh")
     else:
         # example of running a linux command line
         os.system("ls -lsf")

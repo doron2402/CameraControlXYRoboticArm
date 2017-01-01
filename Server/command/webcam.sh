@@ -3,4 +3,4 @@
 
 DATE=$(date +"%Y-%m-%d_%H%M")
 
-fswebcam -r --no-banner /home/pi/webcam/$DATE.jpg
+fswebcam -r 640x480 --no-banner /home/pi/webcam/$DATE.jpg
