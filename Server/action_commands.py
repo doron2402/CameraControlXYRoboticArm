@@ -2,7 +2,7 @@ import os
 def camera_action(action):
     res = ''
     if action == "snapshot":
-        os.system("sh ./commands/webcam.sh")
+        os.system("fswebcam -r 640x480 --no-banner ./static/images/current_pic.jpg")
         res = { 'type': 'camera', 'action': action, 'success': 'true' } 
     else:
         res = { 'type': 'camera', 'action': action, 'error': 'unknown action' }
