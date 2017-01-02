@@ -24,7 +24,8 @@
 			<button class="btn-success command" name="camera-snapshot">Take Picture</button>
 			
 		</p>
-
+		<a href="{{ url_for('static', filename='images/current_pic.jpg') }}" target="blank">View Image</a>
+		
 		<img src="{{ url_for('static', filename='images/current_pic.jpg') }}" />
 
 		<h4>Subheading</h4>
