@@ -1,4 +1,4 @@
 #!/bin/bash
 
 #fswebcam -r 640x480 --no-banner ~/webcam/$(date +%s).jpg
-fswebcam -r 640x480 --no-banner CurrentPic.jpg
+fswebcam -r 640x480 --no-banner /static/images/CurrentPic.jpg
