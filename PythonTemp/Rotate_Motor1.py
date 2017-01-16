@@ -40,5 +40,15 @@ sleep(20)
  
 print "Stopping motor2"
 GPIO.output(Motor2E,GPIO.LOW)
+
+sleep(5)
+print "Turning motor1 and motor2 on"
+GPIO.output(Motor1E,GPIO.LOW)
+GPIO.output(Motor2E,GPIO.LOW)
+
+sleep(10)
+print "Stopping motor1 and motor2 on"
+GPIO.output(Motor1E,GPIO.LOW)
+GPIO.output(Motor2E,GPIO.LOW)
  
 GPIO.cleanup()
