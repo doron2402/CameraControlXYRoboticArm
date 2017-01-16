@@ -31,3 +31,14 @@ def move_action(action):
     else:
         res = { 'type': "move", 'action': action, 'error': 'unknown action' } 
     return res
+
+def ReadTargetPoint(event,img):
+    var posX = event.offsetX?(event.offsetX):event.pageX-img.offsetLeft;
+    var posY = event.offsetY?(event.offsetY):event.pageY-img.offsetTop;
+    document.getElementById("NameX").value = posX;
+    document.getElementById("NameY").value = posY;
+    res = { 'type': "image", 'action': action, 'success': 'true' } 
+    return true
+
+
+

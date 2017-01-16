@@ -26,7 +26,13 @@
 		</p>
 		<a href="{{ url_for('static', filename='images/current_pic.jpg') }}" target="blank">View Image</a>
 		
-		<img src="{{ url_for('static', filename='images/current_pic.jpg') }}" />
+		<img src="{{ url_for('static', filename='images/current_pic.jpg') }}" onclick="ReadTargetPoint(event,this);"/>
+		<br>
+		<h3>X:</h3>
+		<input id:"nameX" type="textbox">
+		<br>
+		<h3>Y:</h3>
+		<input id:"nameY" type="textbox">
 
 		<h4>Subheading</h4>
 		<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
