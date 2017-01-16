@@ -43,8 +43,8 @@ GPIO.output(Motor2E,GPIO.LOW)
 
 sleep(5)
 print "Turning motor1 and motor2 on"
-GPIO.output(Motor1E,GPIO.LOW)
-GPIO.output(Motor2E,GPIO.LOW)
+GPIO.output(Motor1E,GPIO.HIGH)
+GPIO.output(Motor2E,GPIO.HIGH)
 
 sleep(10)
 print "Stopping motor1 and motor2 on"
