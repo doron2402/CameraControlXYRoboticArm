@@ -5,8 +5,8 @@ IO.setwarnings(False)
 IO.setmode(IO.BCM)
 
 #Output ports
-IO.setup(14, GPIO.OUT)#Conrol Motor1
-IO.setup(18, GPIO.OUT)#Conrol Motor2
+IO.setup(14, IO.OUT)#Conrol Motor1
+IO.setup(18, IO.OUT)#Conrol Motor2
 
 #Freq=50Hz
 pwm_m1 = IO.PWM(14,50)
