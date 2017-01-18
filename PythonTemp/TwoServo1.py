@@ -13,7 +13,7 @@ pwm_m1 = IO.PWM(14,50)
 pwm_m2 = IO.PWM(18,50)
 
 pwm_m1.start(2.5)#7.5% duty cycle
-pwm_m1.start(12.5)#7.5% duty cycle
+pwm_m2.start(12.5)#7.5% duty cycle
 
 
 while 1:
