@@ -19,13 +19,13 @@ pwm_m2.start(12.5)#7.5% duty cycle
 while 1:
 	pwm_m1.ChangeDutyCycle(2.5)
 	pwm_m2.ChangeDutyCycle(12.5)
-	time.sleep(1)
+	time.sleep(30)
 
 	pwm_m1.ChangeDutyCycle(7.5)
 	pwm_m2.ChangeDutyCycle(7.5)
-	time.sleep(1)
+	time.sleep(30)
 
 	pwm_m1.ChangeDutyCycle(12.5)
 	pwm_m2.ChangeDutyCycle(2.5)
-	time.sleep(1)
+	time.sleep(30)
 
