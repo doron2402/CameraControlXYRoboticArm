@@ -23,7 +23,17 @@ def main():
     #cv2.imshow('frame',frame)
     #cv2.imshow('mask',mask)
     #cv2.imshow('res',res)
-    cv2.imwrite('image4_red_result.jpg',res)
+
+    lower_red = np.array([175,70,50])
+    upper_red = np.array([180,255,255])
+    
+    mask = cv2.inRange(hsv, lower_red, upper_red)
+    res2 = cv2.bitwise_and(image,image, mask = mask)
+    
+    res3= cv2.bitwise_or(image,image, mask = mask)
+
+
+    cv2.imwrite('image4_red_result.jpg',res3)
     
 
 if (__name__ == "__main__"):
