@@ -13,8 +13,8 @@ def main():
     #lower_blue = np.array([110,50,50])
     #upper_blue = np.array([130,255,255])
     # define range of red color in HSV
-    lower_red = np.array([0,255,50])
-    upper_red = np.array([0,255,255])
+    lower_red = np.array([0,70,50])
+    upper_red = np.array([10,255,255])
     # Threshold the HSV image to get only blue colors
     #mask = cv2.inRange(hsv, lower_blue, upper_blue)
     mask = cv2.inRange(hsv, lower_red, upper_red)
