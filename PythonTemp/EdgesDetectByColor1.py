@@ -31,35 +31,15 @@ def main():
     circles = np.round(circles[0, :]).astype("int")
     # loop over the (x, y) coordinates and radius of the circles
     for (x, y, r) in circles:
-		# draw the circle in the output image, then draw a rectangle
-		# corresponding to the center of the circle
+        # draw the circle in the output image, then draw a rectangle
+        # corresponding to the center of the circle
         cv2.circle(output, (x, y), r, (0, 255, 0), 4)
         cv2.rectangle(output, (x - 5, y - 5), (x + 5, y + 5), (0, 128, 255), -1)
- 
-	# show the output image
+        
+    # show the output image
     cv2.imwrite('image4_output.jpg',output)
 	
-    
 
-    '''#---------Detect Red Objects-------------
-    # define range of red color in HSV
-    lower_red = np.array([0,70,50])
-    upper_red = np.array([10,255,255])
-    # Threshold the HSV image to get only red colors
-    mask = cv2.inRange(hsv, lower_red, upper_red)
-    # Bitwise-AND mask and original image
-    res = cv2.bitwise_and(image,image, mask = mask)
-
-    lower_red = np.array([175,70,50])
-    upper_red = np.array([180,255,255])
-    
-    mask = cv2.inRange(hsv, lower_red, upper_red)
-    res2 = cv2.bitwise_and(image,image, mask = mask)
-    
-    res3= cv2.bitwise_or(image,image, mask = mask)
-
-    cv2.imwrite('image4_red_result.jpg',res3)
-    */'''
 
 if (__name__ == "__main__"):
 	main()
