@@ -14,13 +14,13 @@ def main():
     lower_blue = np.array([110,50,50])
     upper_blue = np.array([130,255,255])
     # Threshold the HSV image to get only blue colors
-    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    BinaryImg = cv2.inRange(hsv, lower_blue, upper_blue)
     #Bitwise-AND mask and original image
     #res = cv2.bitwise_and(image,image, mask = mask)
 
-    cv2.imwrite('image4_mask_result.jpg',mask)
+    cv2.imwrite('image4_mask_result.jpg',BinaryImg)
 
-    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,20, 
+    circles = cv2.HoughCircles(BinaryImg,cv2.HOUGH_GRADIENT,1,20, 
         param1=50,param2=30,minRadius=0,maxRadius=0)
 
     
