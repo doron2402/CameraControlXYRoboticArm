@@ -5,10 +5,11 @@ img = cv2.imread('image4_with_sample.jpg',0)
 
 img1 = cv2.medianBlur(img,5)
 
-cv2.cvtColor(img1, img1, CV_RGB2GRAY)
+cv2.imwrite('image4_gray_and_blur.jpg',img1)
 
-#circles = cv2.HoughCircles(grayimg,cv2.HOUGH_GRADIENT,1,20,param1=50,param2=30,minRadius=0,maxRadius=0)
-circles = cv2.HoughCircles(gray, cv2.cv.CV_HOUGH_GRADIENT, 1.2, 100)
+
+#circles = cv2.HoughCircles(img1,cv2.HOUGH_GRADIENT,1,20,param1=50,param2=30,minRadius=0,maxRadius=0)
+circles = cv2.HoughCircles(img1, cv2.HOUGH_GRADIENT, 1.2, 100)
 
 
 # ensure at least some circles were found
