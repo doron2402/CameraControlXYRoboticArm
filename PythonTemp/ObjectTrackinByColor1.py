@@ -6,7 +6,7 @@ import numpy as np
 
 def main():
     # Take a frame
-    image = cv2.imread('image2_with_sample.jpg')
+    image = cv2.imread('image4_with_sample.jpg')
     # Convert BGR to HSV
     hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
     '''#---------Detect Blue Objects-------------
@@ -36,9 +36,9 @@ def main():
     mask = cv2.inRange(hsv, lower_red, upper_red)
     res2 = cv2.bitwise_and(image,image, mask = mask)
     
-    
+    res3= cv2.bitwise_or(image,image, mask = mask)
 
-    cv2.imwrite('image2_red_result.jpg',res2)
+    cv2.imwrite('image4_red_result.jpg',res3)
     
 
 if (__name__ == "__main__"):
