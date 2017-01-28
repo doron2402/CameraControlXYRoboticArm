@@ -2,7 +2,7 @@ import cv2
 import numpy as np
      
      
-img = cv2.imread('image4_with_sample.jpg',0)
+img = cv2.imread('image2_with_sample.jpg',0)
 img2 = img.copy()
 template = cv2.imread('red circle.jpg',0)
 w, h = template.shape[::-1]
