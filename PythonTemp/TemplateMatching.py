@@ -43,12 +43,28 @@ cv2.rectangle(img,top_left, bottom_right, 255, 2)
 #---------Detect Red Object-------------
 img2=img.copy()
 
+template = cv2.imread('red circle.jpg',0)
+w, h = template.shape[::-1]
+# define range of red color in HSV
+lower_red = np.array([0,70,50])
+upper_red = np.array([10,255,255])
+# Threshold the HSV image to get only red colors
+mask = cv2.inRange(hsv, lower_red, upper_red)
+# Bitwise-AND mask and original image
+res = cv2.bitwise_and(image,image, mask = mask)
+
 lower_red = np.array([175,70,50])
 upper_red = np.array([180,255,255])
     
 mask = cv2.inRange(hsv, lower_red, upper_red)
-res2 = cv2.bitwise_and(img2,img2, mask = mask)
-img2 = cv2.cvtColor(res2,cv2.COLOR_BGR2GRAY)
+res2 = cv2.bitwise_and(image,image, mask = mask)
+    
+res3= cv2.bitwise_or(image,image, mask = mask)
+
+
+
+
+img2 = cv2.cvtColor(res3,cv2.COLOR_BGR2GRAY)
  
 cv2.imwrite('red Proccess img.jpg',img)
 
