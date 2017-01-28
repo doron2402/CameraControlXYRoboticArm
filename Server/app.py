@@ -21,7 +21,7 @@ def about():
 	return render_template('about.html')
 # Now we can access the configuration variables via app.config["VAR_NAME"].
 
-@app.route('/commands/<type>/<action>', methods=['POST'])
+@app.route('/commands/<type>/<action>', methods=['POST']['GET'])
 def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
@@ -29,14 +29,18 @@ def commands(type, action):
     # Camera
     if type == "camera":
         res = camera_action(action)
+
+    # Camera
+    elif type == "program":
+        res = program_action(action)
     # Zoom
-    elif type == "zoom":
-        res = zoom_action(action)
+    #elif type == "zoom":
+     #   res = zoom_action(action)
     # Move
-    elif type == "move":
-        res = move_action(action)
-    else:
-        res = { 'type': type, 'action': action, 'error': 'unknown type' }    
+    #elif type == "move":
+    #    res = move_action(action)
+    #else:
+    #    res = { 'type': type, 'action': action, 'error': 'unknown type' }    
 
     return jsonify(**res)
 
