@@ -26,11 +26,16 @@ cv2.imwrite('Proccess img.jpg',img)
 res = cv2.matchTemplate(img2,template,cv2.TM_CCOEFF_NORMED)
 min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
-print min_loc
-print max_loc
     
-top_left = max_loc
+top_left = min_loc
 bottom_right = (top_left[0] + w, top_left[1] + h)
+
+x = top_left[0] + w/2
+y = top_left[1] + h/2
+
+blue_coor = [x,y]
+print ("X=",blue_coor[0],"Y=",blue_coor[1])
+
     
 cv2.rectangle(img,top_left, bottom_right, 255, 2)
 
