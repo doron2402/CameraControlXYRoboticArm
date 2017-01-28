@@ -8,10 +8,10 @@ template = cv2.imread('blue circle.jpg',0)
 w, h = template.shape[::-1]
 
 
-     
+img2=img.copy()
 hsv = cv2.cvtColor(img2,cv2.COLOR_BGR2HSV)
 #---------Detect Blue Object-------------
-img2=img.copy()
+
 # define range of blue color in HSV
 lower_blue = np.array([110,50,50])
 upper_blue = np.array([130,255,255])
@@ -64,7 +64,7 @@ bottom_right = (top_left[0] + w, top_left[1] + h)
 x = top_left[0] + w/2
 y = top_left[1] + h/2
 
-blue_coor = [x,y]
+red_coor = [x,y]
 print ("X=",red_coor[0],"Y=",red_coor[1])
 
     
