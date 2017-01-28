@@ -3,14 +3,14 @@ import numpy as np
      
      
 img = cv2.imread('image2_with_sample.jpg',0)
-img2 = img.copy()
+
 template = cv2.imread('red circle.jpg',0)
 w, h = template.shape[::-1]
      
 # All the 6 methods for comparison in a list
 #methods = ['cv2.TM_CCOEFF']
     
-img = img2.copy()
+
 #method = eval(methods)
     
 # Apply template Matching
