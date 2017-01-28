@@ -4,7 +4,7 @@ import numpy as np
      
 img = cv2.imread('image2_with_sample.jpg')
 
-template = cv2.imread('red circle.jpg',0)
+template = cv2.imread('blue circle.jpg',0)
 w, h = template.shape[::-1]
 
      
@@ -19,10 +19,10 @@ mask = cv2.inRange(hsv, lower_blue, upper_blue)
 res = cv2.bitwise_and(img,img, mask = mask)
 img = cv2.cvtColor(res,cv2.COLOR_BGR2GRAY)
  
-
+cv2.imwrite('Proccess img.jpg',img)
 
 # Apply template Matching
-res = cv2.matchTemplate(img,template,cv2.TM_CCOEFF)
+res = cv2.matchTemplate(img,template,cv2.TM_CCOEFF_NORMED)
 min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
    
     
