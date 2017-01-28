@@ -21,7 +21,7 @@ mask = cv2.inRange(hsv, lower_blue, upper_blue)
 res = cv2.bitwise_and(img2,img2, mask = mask)
 img2 = cv2.cvtColor(res,cv2.COLOR_BGR2GRAY)
  
-cv2.imwrite('Proccess img.jpg',img)
+cv2.imwrite('blue Proccess img.jpg',img)
 
 # Apply template Matching
 res = cv2.matchTemplate(img2,template,cv2.TM_CCOEFF_NORMED)
@@ -35,23 +35,22 @@ x = top_left[0] + w/2
 y = top_left[1] + h/2
 
 blue_coor = [x,y]
-print ("X=",blue_coor[0],"Y=",blue_coor[1])
+print ("Blue: X=",blue_coor[0],"Y=",blue_coor[1])
 
     
 cv2.rectangle(img,top_left, bottom_right, 255, 2)
 
 #---------Detect Red Object-------------
 img2=img.copy()
-# define range of blue color in HSV
-lower_red = np.array([0,70,50])
-upper_red = np.array([10,255,255])
-# Threshold the HSV image to get only red colors
+
+lower_red = np.array([175,70,50])
+upper_red = np.array([180,255,255])
+    
 mask = cv2.inRange(hsv, lower_red, upper_red)
-#Bitwise-AND mask and original image
-res = cv2.bitwise_and(img2,img2, mask = mask)
-img2 = cv2.cvtColor(res,cv2.COLOR_BGR2GRAY)
+res2 = cv2.bitwise_and(img2,img2, mask = mask)
+img2 = cv2.cvtColor(res2,cv2.COLOR_BGR2GRAY)
  
-cv2.imwrite('Proccess img.jpg',img)
+cv2.imwrite('red Proccess img.jpg',img)
 
 # Apply template Matching
 res = cv2.matchTemplate(img2,template,cv2.TM_CCOEFF_NORMED)
@@ -65,7 +64,7 @@ x = top_left[0] + w/2
 y = top_left[1] + h/2
 
 red_coor = [x,y]
-print ("X=",red_coor[0],"Y=",red_coor[1])
+print ("Red: X=",red_coor[0],"Y=",red_coor[1])
 
     
 cv2.rectangle(img,top_left, bottom_right, 255, 2)
