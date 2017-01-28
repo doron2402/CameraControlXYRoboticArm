@@ -4,35 +4,53 @@
 	<div class="col-offset-lg-2 col-lg-6 status"></div>
 	</div>
 	<div class="col-lg-6 col-md-6">
-		<h4>Zoom</h4>
+		<!--<h4>Zoom</h4>
 		<p>The ability to zoom in/out</p>
 		<p><button class="btn-success command" name="zoom-in">Zoom IN</button>
-		<button class="btn-danger command" name="zoom-out">Zoom OUT</button></p>
+		<button class="btn-danger command" name="zoom-out">Zoom OUT</button></p>-->
+        <form name:"ActionMessages">
+        	Action Messages:<br>
+        	<input type="text" value="Please choose coordinates" name="ActionMessages">
+        </form>
 
-		<h4>Move</h4>
-		<p>Some Description</p>
+		<h4>Robotic Arm Commands</h4>
+		<!--<p>Some Description</p>-->
 		<p>
-			<button class="btn-success command" name="move-up">Up</button>
-			<button class="btn-success command" name="move-down">Down</button>
-			<button class="btn-success command" name="move-left">Left (≤)</button>
-			<button class="btn-success command" name="move-right">Right (≥)</button>
+			<button class="btn-success command" name="program-start">Start</button>
+			<button class="btn-success command" name="program-pause">Pause</button>
+			<button class="btn-success command" name="program-stop">Stop </button>
+			
 		</p>
+
+        <form name:"coordinate">
+        	X coordinate:
+        	<input type="text" value="0" name="Xcoordinate">
+        	<br>
+            Y coordinate:
+        	<input type="text" value="0" name="Ycoordinate">
+        </form>
+
+        <form name:"StatusMessages">
+        	Status Messages:
+        	<input type="text" value="Stand by" name="StatusMessages">
+        	<br>
+        </form>
 
 		<h4>Camera </h4>
 		<p>Some Description</p>
 		<p>
-			<button class="btn-success command" name="camera-snapshot">Take Picture</button>
+			<!--<button class="btn-success command" name="camera-snapshot">Take Picture</button>-->
 			
 		</p>
-		<a href="{{ url_for('static', filename='images/current_pic.jpg') }}" target="blank">View Image</a>
+		<!--<a href="{{ url_for('static', filename='images/current_pic.jpg') }}" target="blank">View Image</a>-->
 		
 		<img src="{{ url_for('static', filename='images/current_pic.jpg') }}" />
 
-		<h4>Subheading</h4>
-		<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+		<!--<h4>Subheading</h4>
+		<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>-->
 	</div>
 
-	<div class="col-lg-6 col-md-6">
+	<!--<div class="col-lg-6 col-md-6">
 		<h4>Subheading</h4>
 		<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
@@ -41,6 +59,6 @@
 
 		<h4>Subheading</h4>
 		<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-	</div>  
+	</div>  -->
 {% endblock %}
 

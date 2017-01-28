@@ -54,6 +54,20 @@ $(document).ready(function(){
       setTimeout(function() {
         $('.status').html('<div class="alert alert-success" role="alert">Sent Successfully! [type: ' + res.type + ', action: ' + res.action + ']</div>');
       }, 500);
+
+      //Send messages to thr GUI screen
+
+      //Return Commands for the user
+      document.ActionMessages.ActionMessages.value=res.Amess
+      //Return target coordinates
+      document.coordinate.Xcoordinate.value=res.Xval
+      document.coordinate.Ycoordinate.value=res.Yval
+
+      document.StatusMessages.StatusMessages.value=res.Smess
+
+
+
+
      }).done(function(done) {
       // Command Sent action is done.
       setTimeout(function() {

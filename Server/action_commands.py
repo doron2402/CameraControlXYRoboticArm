@@ -9,6 +9,7 @@ def camera_action(action):
 
     return res
 
+'''
 def zoom_action(action):
     if action == "in":
         res = { 'type': 'zoom', 'action': action, 'success': 'true' }
@@ -30,4 +31,16 @@ def move_action(action):
         res = { 'type': "move", 'action': action, 'success': 'true' } 
     else:
         res = { 'type': "move", 'action': action, 'error': 'unknown action' } 
+    return res
+'''
+
+def program_action(action):
+    if action == "start":
+        res = { 'type': "program", 'action': action, 'success': 'true', 'Amess':'Please choose coordinates', 'Smess':'Running' }
+    elif action == "pause":
+        res = { 'type': "program", 'action': action, 'success': 'true', 'Amess':'Waiting for command', 'Smess':'Paused'  }
+    elif action == "stop":
+        res = { 'type': "program", 'action': action, 'success': 'true', 'Amess':'Stand by' , 'Smess':'Stoped' }
+    else:
+        res = { 'type': "program", 'action': action, 'error': 'unknown action' } 
     return res
