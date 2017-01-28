@@ -2,15 +2,15 @@ import cv2
 import numpy as np
      
      
-img = cv2.imread('image2_with_sample.jpg')
+img = cv2.imread('image4_with_sample.jpg')
+hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
 
+
+#---------Detect Blue Object-------------
 template = cv2.imread('blue circle.jpg',0)
 w, h = template.shape[::-1]
-
-
 img2=img.copy()
-hsv = cv2.cvtColor(img2,cv2.COLOR_BGR2HSV)
-#---------Detect Blue Object-------------
+
 
 # define range of blue color in HSV
 lower_blue = np.array([110,50,50])
@@ -36,7 +36,6 @@ y = top_left[1] + h/2
 
 blue_coor = [x,y]
 print ("Blue: X=",blue_coor[0],"Y=",blue_coor[1])
-
     
 cv2.rectangle(img,top_left, bottom_right, 255, 2)
 
@@ -51,15 +50,15 @@ upper_red = np.array([10,255,255])
 # Threshold the HSV image to get only red colors
 mask = cv2.inRange(hsv, lower_red, upper_red)
 # Bitwise-AND mask and original image
-res = cv2.bitwise_and(image,image, mask = mask)
+res = cv2.bitwise_and(img2,img2, mask = mask)
 
 lower_red = np.array([175,70,50])
 upper_red = np.array([180,255,255])
     
 mask = cv2.inRange(hsv, lower_red, upper_red)
-res2 = cv2.bitwise_and(image,image, mask = mask)
+res2 = cv2.bitwise_and(img2,img2, mask = mask)
     
-res3= cv2.bitwise_or(image,image, mask = mask)
+res3= cv2.bitwise_or(img2,img2, mask = mask)
 
 
 
