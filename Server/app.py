@@ -21,7 +21,7 @@ def about():
 	return render_template('about.html')
 # Now we can access the configuration variables via app.config["VAR_NAME"].
 
-@app.route('/commands/<type>/<action>', methods=['POST']['GET'])
+@app.route('/commands/<type>/<action>', methods=['POST'])
 def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
