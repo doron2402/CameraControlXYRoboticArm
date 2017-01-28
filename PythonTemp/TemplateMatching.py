@@ -8,13 +8,13 @@ template = cv2.imread('image4_with_sample.jpg',0)
 w, h = template.shape[::-1]
      
 # All the 6 methods for comparison in a list
-methods = ['cv2.TM_CCOEFF']
+#methods = ['cv2.TM_CCOEFF']
     
 img = img2.copy()
-method = eval(methods)
+#method = eval(methods)
     
 # Apply template Matching
-res = cv2.matchTemplate(img,template,method)
+res = cv2.matchTemplate(img,template,cv2.TM_CCOEFF)
 min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
    
     
