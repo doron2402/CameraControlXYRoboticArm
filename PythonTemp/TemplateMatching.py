@@ -2,17 +2,25 @@ import cv2
 import numpy as np
      
      
-img = cv2.imread('image2_with_sample.jpg',0)
+img = cv2.imread('image2_with_sample.jpg')
 
 template = cv2.imread('red circle.jpg',0)
 w, h = template.shape[::-1]
-     
-# All the 6 methods for comparison in a list
-#methods = ['cv2.TM_CCOEFF']
-    
 
-#method = eval(methods)
-    
+     
+hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+#---------Detect Blue Objects-------------
+# define range of blue color in HSV
+lower_blue = np.array([110,50,50])
+upper_blue = np.array([130,255,255])
+# Threshold the HSV image to get only blue colors
+mask = cv2.inRange(hsv, lower_blue, upper_blue)
+#Bitwise-AND mask and original image
+res = cv2.bitwise_and(img,img, mask = mask)
+img = cv2.cvtColor(res,cv2.COLOR_BGR2GRAY)
+ 
+
+
 # Apply template Matching
 res = cv2.matchTemplate(img,template,cv2.TM_CCOEFF)
 min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
