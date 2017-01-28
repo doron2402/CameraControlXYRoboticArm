@@ -11,7 +11,7 @@ w, h = template.shape[::-1]
 methods = ['cv2.TM_CCOEFF']
     
 img = img2.copy()
-method = eval(meth)
+method = eval(methods)
     
 # Apply template Matching
 res = cv2.matchTemplate(img,template,method)
