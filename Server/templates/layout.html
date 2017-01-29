@@ -48,8 +48,7 @@ $(document).ready(function(){
     var name = $(event.currentTarget).attr('name');
     var type = name.split('-')[0];
     var action = name.split('-')[1];
-    var Amess = 'undefined'
-    var Smess = 'undefined'
+    
     $('.status').html('<div class="alert alert-info" role="alert">sending command!</div>');
      $.post('/commands/' + type + '/' + action, function(res) {
       // Successfully
@@ -59,14 +58,14 @@ $(document).ready(function(){
       //Send messages to thr GUI screen
 
       //Return Commands for the user
-      document.ActionMessages.ActionMessages.value=res.Amess
+      //document.ActionMessages.ActionMessages.value=res.Amess
       //Return target coordinates
       //document.coordinate.Xcoordinate.value=res.Xval
       //document.coordinate.Ycoordinate.value=res.Yval
 
       //Return the status of the program
-      document.StatusMessages.StatusMessages.value=res.Smess
-
+      //document.StatusMessages.StatusMessages.value=res.Smess
+      $("msg").html(res.action)
 
 
 
