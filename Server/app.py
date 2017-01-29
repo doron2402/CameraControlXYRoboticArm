@@ -41,7 +41,7 @@ def commands(type, action):
     if type == "camera":
         res = camera_action(action)
 
-    # Camera
+    # program
     elif type == "program":
         res = program_action(action)
     # Zoom
@@ -52,8 +52,6 @@ def commands(type, action):
     #    res = move_action(action)
     #else:
     #    res = { 'type': type, 'action': action, 'error': 'unknown type' }    
-    if STATUS == "start":
-        loop_picture()
 
     return jsonify(**res)
 
