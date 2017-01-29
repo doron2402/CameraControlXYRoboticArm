@@ -33,6 +33,8 @@
        {% block body %}{% endblock %}
       </div>
 
+      <div id="msg"></div>
+
       <footer class="footer">
         <p>&copy; Company 2014</p>
       </footer>
@@ -65,7 +67,7 @@ $(document).ready(function(){
 
       //Return the status of the program
       //document.StatusMessages.StatusMessages.value=res.Smess
-      $("msg").html(res.Amsg)
+      $("#msg").html(res.amsg)
 
 
 

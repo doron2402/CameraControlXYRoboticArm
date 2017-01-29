@@ -36,11 +36,11 @@ def move_action(action):
 
 def program_action(action):
     if action == "start":
-        res = { 'type': "program", 'action': action, 'success': 'true', 'Amsg':'Please choose coordinates', 'Smess':'Running' }
+        res = { 'type': "program", 'action': action, 'success': 'true', 'amsg':'Please choose coordinates', 'Smess':'Running' }
     elif action == "pause":
-        res = { 'type': "program", 'action': action, 'success': 'true', 'Amsg':'Waiting for command', 'Smess':'Paused'  }
+        res = { 'type': "program", 'action': action, 'success': 'true', 'amsg':'Waiting for command', 'Smess':'Paused'  }
     elif action == "stop":
-        res = { 'type': "program", 'action': action, 'success': 'true', 'Amsg':'Stand by' , 'Smess':'Stoped' }
+        res = { 'type': "program", 'action': action, 'success': 'true', 'amsg':'Stand by' , 'Smess':'Stoped' }
     else:
         res = { 'type': "program", 'action': action, 'error': 'unknown action' } 
     return res
