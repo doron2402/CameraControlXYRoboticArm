@@ -42,7 +42,21 @@
     <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
    
 	 <script type="text/javascript">
+   var newImage = new Image();
+
+  var updateImage = function() {
+    if(newImage.complete) {
+      newImage.src = $('img#main_img').attr("src");
+      var temp = newImage.src;
+      $('img#main_img').attr("src", newImage.src)
+      newImage = new Image();
+      newImage.src = temp+"?" + new Date().getTime();
+    }
+    setTimeout(updateImage, 1000);
+  };
+
 $(document).ready(function(){
+  updateImage();
   $('button.command').click(function(event){
     event.preventDefault();
     var name = $(event.currentTarget).attr('name');
