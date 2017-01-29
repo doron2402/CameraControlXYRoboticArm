@@ -1,4 +1,6 @@
 import os 
+import time
+
 def camera_action(action):
     res = ''
     if action == "snapshot":
@@ -44,3 +46,9 @@ def program_action(action):
     else:
         res = { 'type': "program", 'action': action, 'error': 'unknown action' } 
     return res
+
+def loop_picture():
+    time.sleep(5)
+    os.system("fswebcam -r 640x480 --no-banner ./static/images/current_pic.jpg")
+
+    

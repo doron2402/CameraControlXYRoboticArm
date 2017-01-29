@@ -50,6 +50,8 @@ def commands(type, action):
     #    res = move_action(action)
     #else:
     #    res = { 'type': type, 'action': action, 'error': 'unknown type' }    
+    if STATUS == "start":
+        loop_picture()
 
     return jsonify(**res)
 
