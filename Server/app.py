@@ -2,7 +2,7 @@
 from flask import Flask, render_template, jsonify
 import os 
 from action_commands import *
-global status
+global STATUS = None
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -30,10 +30,10 @@ def about():
 def commands(type, action):
     print("Command Type %s" % type)
     print("Command Action %s" % action)
-    if (status != None and action == status):
+    if STATUS != None and STATUS == action:
         return jsonify({ 'type': type, 'action': action })
     else:
-        status = action
+        STATUS = action
 
     # Camera
     if type == "camera":
