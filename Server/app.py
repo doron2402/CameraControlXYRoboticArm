@@ -6,13 +6,17 @@ from action_commands import *
 app = Flask(__name__)
 app.config.from_object('config')
 
+def take_photo():
+    os.system("fswebcam -r 640x480 --no-banner ./static/images/current_pic.jpg")
 
 @app.route('/')
 def home():
+    take_photo()
     return render_template('dashboard.html')
 
 @app.route('/dashboard')
 def dashboard():
+    take_photo()
     return render_template('dashboard.html')
 
 @app.route('/about')
