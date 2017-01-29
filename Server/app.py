@@ -11,6 +11,16 @@ app.config.from_object('config')
 def take_photo():
     os.system("fswebcam -r 640x480 --no-banner ./static/images/current_pic.jpg")
 
+@app.after_request
+def add_header(response):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    response.headers['Cache-Control'] = 'public, max-age=0'
+    return response
+
 @app.route('/')
 def home():
     take_photo()
