@@ -19,6 +19,11 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     take_photo()
+
+    global STATUS
+    if STATUS == "start":
+        loop_picture()
+        
     return render_template('dashboard.html')
 
 @app.route('/about')
