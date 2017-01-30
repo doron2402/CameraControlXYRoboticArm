@@ -17,15 +17,10 @@ def main():
     if circles is None:
         print "No circle found"
     else:
-        print circles
-        circles = np.uint16(np.around(circles))
-        for i in circles[0,:]:
-            # draw the outer circle
-            cv2.circle(image2,(i[0],i[1]),i[2],(0,255,0),2)
-            # draw the center of the circle
-            cv2.circle(image2,(i[0],i[1]),2,(0,0,255),3)
 
-    
+        image2 = draw_circle(image2,circles)
+        print circles
+        
         cv2.imwrite('detected red circles.jpg',image2)
     #---------Detect Blue Objects-------------
     b_mask = get_color_mask(image,"blue")
@@ -37,15 +32,9 @@ def main():
         print "No circle found"
 
     else:
+        image2 = draw_circle(image2,circles)
         print circles
-        circles = np.uint16(np.around(circles))
-        for i in circles[0,:]:
-            # draw the outer circle
-            cv2.circle(image2,(i[0],i[1]),i[2],(0,255,0),2)
-            # draw the center of the circle
-            cv2.circle(image2,(i[0],i[1]),2,(0,0,255),3)
-
-    
+        
         cv2.imwrite('detected circles.jpg',image2)
 
 if (__name__ == "__main__"):

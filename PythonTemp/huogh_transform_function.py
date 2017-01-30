@@ -1,14 +1,7 @@
 import cv2
 import numpy as np
 
-
-def main():
-    # Take a image
-    image = cv2.imread('two circles.png')
-    image2 = image.copy()
-    # Convert BGR to HSV
-    hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
-    
+  
 def get_color_mask(image,color):
     #return white image with images in the color only
     hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
@@ -41,19 +34,24 @@ def return_circles_values(img):
     img = cv2.medianBlur(img,5)
 
     circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,40, param1=35,param2=20,minRadius=0,maxRadius=0)
-    
-    if circles is None:
-        print "No circle found"
-
-    '''else:
-        print circles
-        circles = np.uint16(np.around(circles))
-        for i in circles[0,:]:
-            # draw the outer circle
-            cv2.circle(image2,(i[0],i[1]),i[2],(0,255,0),2)
-            # draw the center of the circle
-            cv2.circle(image2,(i[0],i[1]),2,(0,0,255),3)
-    '''
     return circles
+
+def draw_circle(img,circles):
+    #draw circle by coordinate and radius
+    circles = np.uint16(np.around(circles))
+    for i in circles[0,:]:
+        # draw the outer circle
+        cv2.circle(img,(i[0],i[1]),i[2],(0,255,0),2)
+        # draw the center of the circle
+        cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
+    return img
+
+
+
+
+
+
+
+
     
  
