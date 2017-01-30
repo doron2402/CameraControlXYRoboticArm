@@ -6,7 +6,7 @@ import numpy as np
 
 def main():
     # Take a frame
-    image = cv2.imread('image4_with_sample.jpg')
+    image = cv2.imread('red circles.png')
     image2 = image.copy()
     # Convert BGR to HSV
     hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
