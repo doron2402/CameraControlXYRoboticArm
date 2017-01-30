@@ -30,9 +30,9 @@ def main():
     
     #res3= cv2.bitwise_or(image,image, mask = mask)
     #---------Detect edge-------------
-    #edge = cv2.Canny(res3,100,200)
+    edge = cv2.Canny(mask,100,200)
 
-    cv2.imwrite('two circles result.png',mask)
+    cv2.imwrite('two circles result.png',edge)
     img2 = cv2.imread('two circles result.png',0)
     #---------Detect circle-------------
     img2 = cv2.medianBlur(img2,5)
