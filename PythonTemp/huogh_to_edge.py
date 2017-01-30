@@ -6,7 +6,7 @@ import numpy as np
 
 def main():
     # Take a frame
-    image = cv2.imread('red circles.png')
+    image = cv2.imread('two circles.png')
     image2 = image.copy()
     # Convert BGR to HSV
     hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
@@ -29,12 +29,12 @@ def main():
     
     res3= cv2.bitwise_or(image,image, mask = mask)
     #---------Detect edge-------------
-    edge = cv2.Canny(res3,100,200)
+    #edge = cv2.Canny(res3,100,200)
 
-    cv2.imwrite('image4_edge_result.png',edge)
-    img2 = cv2.imread('image4_edge_result.png',0)
+    #cv2.imwrite('image4_edge_result.png',edge)
+    #img2 = cv2.imread('image4_edge_result.png',0)
     #---------Detect circle-------------
-    img2 = cv2.medianBlur(img2,5)
+    img2 = cv2.medianBlur(res3,5)
 
 
     circles = cv2.HoughCircles(img2,cv2.HOUGH_GRADIENT,1,20, param1=50,param2=30,minRadius=0,maxRadius=0)
