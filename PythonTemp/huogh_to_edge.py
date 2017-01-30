@@ -32,11 +32,12 @@ def main():
     edge = cv2.Canny(res3,100,200)
 
     cv2.imwrite('image4_edge_result.jpg',edge)
+    img2 = cv2.imread('image4_edge_result.jpg',0)
     #---------Detect circle-------------
-    edge = cv2.medianBlur(edge,5)
+    img2 = cv2.medianBlur(img2,5)
 
 
-    circles = cv2.HoughCircles(edge,cv2.HOUGH_GRADIENT,1,20, param1=50,param2=30,minRadius=0,maxRadius=0)
+    circles = cv2.HoughCircles(img2,cv2.HOUGH_GRADIENT,1,20, param1=50,param2=30,minRadius=0,maxRadius=0)
     #circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,10, param1=100,param2=30,minRadius=5,maxRadius=50)
     
     if circles is None:
