@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('two circles.png',0)
+img = cv2.imread('black two circles.png',0)
 
 
 img = cv2.medianBlur(img,5)
