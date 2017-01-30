@@ -26,19 +26,15 @@ def main():
     
     mask2 = cv2.inRange(hsv, lower_red, upper_red)
     mask = cv2.bitwise_or(mask1, mask2, mask = None)
-    #res2 = cv2.bitwise_and(image,image, mask = mask)
     
-    #res3= cv2.bitwise_or(image,image, mask = mask)
-    #---------Detect edge-------------
-    #edge = cv2.Canny(mask,100,200)
 
-    cv2.imwrite('two circles result.png',mask)
-    img2 = cv2.imread('two circles result.png',0)
+    #cv2.imwrite('two circles result.png',mask)
+    #img2 = cv2.imread('two circles result.png',0)
     #---------Detect circle-------------
-    img2 = cv2.medianBlur(img2,5)
+    #img2 = cv2.medianBlur(img2,5)
+    mask = cv2.medianBlur(mask,5)
 
-
-    circles = cv2.HoughCircles(img2,cv2.HOUGH_GRADIENT,1,40, param1=35,param2=20,minRadius=0,maxRadius=0)
+    circles = cv2.HoughCircles(mask,cv2.HOUGH_GRADIENT,1,40, param1=35,param2=20,minRadius=0,maxRadius=0)
     #circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,10, param1=100,param2=30,minRadius=5,maxRadius=50)
     
     if circles is None:
