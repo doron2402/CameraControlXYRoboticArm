@@ -31,7 +31,7 @@ def main():
     b_mask = get_color_mask(image,"blue")
 
     #---------Detect Blue circle-------------
-    circles = = return_circles_values(b_mask)
+    circles = return_circles_values(b_mask)
     
     if circles is None:
         print "No circle found"
