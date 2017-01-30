@@ -24,8 +24,6 @@ else:
     	# draw the center of the circle
 		cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
 
-	cv2.imshow('detected circles',cimg)
-	cv2.waitKey(0)
+	
 	cv2.imwrite('detected circles.jpg',cimg)
 
-cv2.destroyAllWindows()
