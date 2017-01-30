@@ -5,7 +5,7 @@ import numpy as np
 
 
 def main():
-    # Take a frame
+    # Take a image
     image = cv2.imread('red circles.png')
     image2 = image.copy()
     # Convert BGR to HSV
