@@ -15,7 +15,7 @@ circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,10, param1=100,param2=30,min
 if circles is None:
 	print "No circle found"
 
-elif:
+else:
 	print circles
 	circles = np.uint16(np.around(circles))
 	for i in circles[0,:]:
