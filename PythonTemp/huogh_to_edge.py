@@ -2,8 +2,6 @@ import cv2
 import numpy as np
 
 
-
-
 def main():
     # Take a image
     image = cv2.imread('two circles.png')
@@ -18,24 +16,43 @@ def main():
     upper_red = np.array([10,255,255])
     # Threshold the HSV image to get only red colors
     mask1 = cv2.inRange(hsv, lower_red, upper_red)
-    # Bitwise-AND mask and original image
-    #res = cv2.bitwise_and(image,image, mask = mask)
 
     lower_red = np.array([175,70,50])
     upper_red = np.array([180,255,255])
     
     mask2 = cv2.inRange(hsv, lower_red, upper_red)
     mask = cv2.bitwise_or(mask1, mask2, mask = None)
-    
 
-    #cv2.imwrite('two circles result.png',mask)
-    #img2 = cv2.imread('two circles result.png',0)
-    #---------Detect circle-------------
-    #img2 = cv2.medianBlur(img2,5)
+    #---------Detect Red circle-------------
     mask = cv2.medianBlur(mask,5)
 
     circles = cv2.HoughCircles(mask,cv2.HOUGH_GRADIENT,1,40, param1=35,param2=20,minRadius=0,maxRadius=0)
-    #circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,10, param1=100,param2=30,minRadius=5,maxRadius=50)
+    
+    if circles is None:
+        print "No circle found"
+
+    else:
+        print circles
+        circles = np.uint16(np.around(circles))
+        for i in circles[0,:]:
+            # draw the outer circle
+            cv2.circle(image2,(i[0],i[1]),i[2],(0,255,0),2)
+            # draw the center of the circle
+            cv2.circle(image2,(i[0],i[1]),2,(0,0,255),3)
+
+    
+        cv2.imwrite('detected red circles.jpg',image2)
+    #---------Detect Blue Objects-------------
+    # define range of blue color in HSV
+    lower_blue = np.array([110,50,50])
+    upper_blue = np.array([130,255,255])
+    # Threshold the HSV image to get only blue colors
+    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+    #---------Detect Blue circle-------------
+    mask = cv2.medianBlur(mask,5)
+
+    circles = cv2.HoughCircles(mask,cv2.HOUGH_GRADIENT,1,40, param1=35,param2=20,minRadius=0,maxRadius=0)
     
     if circles is None:
         print "No circle found"
