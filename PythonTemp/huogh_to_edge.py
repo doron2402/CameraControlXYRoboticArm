@@ -31,8 +31,8 @@ def main():
     #---------Detect edge-------------
     edge = cv2.Canny(res3,100,200)
 
-    cv2.imwrite('image4_edge_result.jpg',edge)
-    img2 = cv2.imread('image4_edge_result.jpg',0)
+    cv2.imwrite('image4_edge_result.png',edge)
+    img2 = cv2.imread('image4_edge_result.png',0)
     #---------Detect circle-------------
     img2 = cv2.medianBlur(img2,5)
 
