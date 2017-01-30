@@ -36,7 +36,7 @@ def main():
     edge = cv2.medianBlur(edge,5)
 
 
-    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,20, param1=50,param2=30,minRadius=0,maxRadius=0)
+    circles = cv2.HoughCircles(edge,cv2.HOUGH_GRADIENT,1,20, param1=50,param2=30,minRadius=0,maxRadius=0)
     #circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,10, param1=100,param2=30,minRadius=5,maxRadius=50)
     
     if circles is None:
